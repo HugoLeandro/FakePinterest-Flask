@@ -12,16 +12,17 @@ def homepage():
     formlogin = FormLogin()
     return render_template("homepage.html", form=formlogin)
 
+
 @app.route("/criarconta", methods=["GET", "POST"])
-def criarconta():
+def criar_conta():
     form_criarconta = FormCriarConta()
     if form_criarconta.validate_on_submit():
         senha = bcrypt.generate_password_hash(form_criarconta.senha.data)
-        bcrypt.check_password_hash()
         usuario = Usuario(username=form_criarconta.username.data,
-                          email=form_criarconta.email.data, senha=senha)
+                          senha=senha, email=form_criarconta.email.data)
         database.session.add(usuario)
         database.session.commit()
+
     return render_template("criarconta.html", form=form_criarconta)
 
 @app.route("/perfil/<usuario>")
