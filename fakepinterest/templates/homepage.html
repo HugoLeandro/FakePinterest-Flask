@@ -11,6 +11,23 @@
 {% block body %}
 <body>
 <h1>fake pinterest</h1>
+
+
+{% block formulario %}
+<form method="POST">
+    {{ form.csrf_token }}
+
+        {{ form.email.label() }}
+        {{ form.email }}
+
+        {{ form.senha.label() }}
+        {{ form.senha }}
+
+        {{ form.confirmacao_botao() }}
+
+</form>
+{% endblock %}
+
 </body>
 {% endblock %}
 </html>
