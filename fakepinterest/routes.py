@@ -1,5 +1,6 @@
 from flask import render_template
 from fakepinterest import app
+from flask_login import login_required
 
 @app.route("/")
 def homepage():
@@ -7,5 +8,6 @@ def homepage():
 
 
 @app.route("/perfil/<usuario>")
+@login_required
 def perfil(usuario):
     return render_template("perfil.html", usuario=usuario)
