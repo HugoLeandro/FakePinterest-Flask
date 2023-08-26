@@ -31,7 +31,7 @@ def criar_conta():
         return redirect(url_for("perfil", id_usuario=usuario.id))
     return render_template("criarconta.html", form=form_criarconta)
 
-@app.route("/perfil/<_id_usuario>")
+@app.route("/perfil/<id_usuario>")
 @login_required
 def perfil(id_usuario):
     if int(id_usuario) == int(current_user.id):

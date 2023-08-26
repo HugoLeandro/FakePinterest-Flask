@@ -6,8 +6,14 @@ Perfil - {{ usuario }}
 
 {% block body %}
 
-<h1>perfil do usuario: {{ usuario }}</h1>
+<h1>perfil do usuario: {{ usuario.username }}</h1>
 <a href="{{ url_for('logout') }}"> sair </a>
+
+{% for foto in usuario.fotos %}
+
+
+{% endfor %}
+
 
 {% endblock %}
 
